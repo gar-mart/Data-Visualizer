@@ -1,0 +1,89 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.navbar-fixed-top {
+    background-color: #417690;
+}
+
+    .navbar-fixed-top a.navbar-brand,
+    .navbar-fixed-top ul.navbar-nav li a {
+        color: white;
+    }
+
+        .navbar-fixed-top a.navbar-brand:hover,
+        .navbar-fixed-top ul.navbar-nav li a:hover {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navlog {
+    color: white;
+    margin-right: 20px;
+}
+
+
+.navbar-header, .navbar-collapse {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    font-size: 16px;
+}

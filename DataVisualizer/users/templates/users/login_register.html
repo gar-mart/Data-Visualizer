@@ -1,0 +1,79 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<style>
+    /* Using the same style as the register page */
+    #login {
+        height: auto;
+        padding: 50px 0;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        padding: 16px 22px;
+        font-size: 1.2rem;
+        border: 1px solid #ccc;
+        transition: all 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #417690;
+            box-shadow: 0 0 0 0.2rem rgba(65, 118, 144, 0.25);
+        }
+
+    .btn-secondary {
+        background-color: #417690;
+        color: white;
+        border: none;
+        padding: 13px 28px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+        .btn-secondary:hover {
+            background-color: #35657d;
+            color: #ddd;
+        }
+
+    label {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+
+    .form-group {
+        margin-bottom: 22px;
+    }
+</style>
+
+<section id="login" class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="text-primary mb-4">Log In</h1>
+                <br />
+
+                <!-- If you have any alerts for the login, you can include them here just like the register page -->
+                <!-- {% include 'users/alerts.html' %} -->
+                {% include 'users/alerts.html' %}
+
+                <form action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" class="form-control" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Enter password" required>
+                    </div>
+                    <input type="submit" value="Login" class="btn btn-secondary btn-block" style="font-size:16px;">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

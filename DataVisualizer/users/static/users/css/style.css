@@ -1,0 +1,181 @@
+.viz-container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #79AEC8;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 30px;
+    transition: background-color 0.3s;
+}
+
+    .upload-btn:hover {
+        background-color: #609AB6;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+.viz-container h2 {
+    border-bottom: 2px solid #e4e4e4;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.viz-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.viz-container li {
+    padding: 10px;
+    border: 1px solid #e4e4e4;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.img-wrapper {
+    display: inline-block;
+    padding: 5px; /* This creates the space between the image and the border */
+    border: 2px solid #6e4400; /* This is the border */
+    box-sizing: border-box;
+}
+
+.imgborder {
+    width: 62px;
+    height: 62px;
+    transition: opacity 0.2s;
+    display: block; /* This removes any undesired space below the image */
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 25px auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Table headers */
+th {
+    background: linear-gradient(to right, #6a1b9a, #8e24aa);
+    color: white;
+    padding: 15px 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Table data */
+td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Striped rows */
+tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+/* Hover effect */
+tr:not(:first-child):hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+
+
+
+
+/* Container */
+.form-container {
+    max-width: 90%;
+    margin: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top:50px;
+}
+
+/* Header */
+.form-header {
+    text-align: center;
+    font-size: 24px;
+    background: linear-gradient(90deg, rgba(128, 0, 128, 1), rgba(75, 0, 130, 1));
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+    margin: -20px -20px 20px -20px;
+}
+
+/* Decorative Icons */
+.icon {
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+/* Form fields */
+.form-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="file"],
+.form-container textarea,
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button */
+.form-container button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    background-color: #79AEC8;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+    border: 1px solid #ccc;
+}
+
+    .form-container button:hover {
+        background-color: #609AB6;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .form-container {
+        width: 100%;
+        padding: 15px;
+    }
+}
+

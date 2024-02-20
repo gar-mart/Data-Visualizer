@@ -1,0 +1,43 @@
+{% extends "app/layout.html" %}
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+
+
+
+<title>My Assets</title>
+
+<div class="viz-container">
+
+    <section class="tables-section">
+        <h2>My Tables</h2>
+        {% if ugtables %}
+        <ul>
+            {% for item in ugtables %}
+            <a href="{% url 'view_table' ug_table_id=item.2 page=1 %}">
+            <li>{{ item.0|default:"No Category" }} - {{ item.1 }}</li>
+            </a>
+
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No Tables Yet</p>
+        {% endif %}
+    </section>
+
+
+
+
+    <a class="upload-btn" href="{% url 'upload' %}">Upload New Table</a>
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+

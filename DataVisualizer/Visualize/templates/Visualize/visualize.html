@@ -1,0 +1,279 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'Visualize/css/style.css' %}">
+
+
+<div class="content-container">
+
+    <form method="post" action="{% url 'visualize' %}">
+        {% csrf_token %}
+        <div class="ct">
+            <label for="table_name" class="lbl">Table Name:</label>
+            <input type="text" name="table_name" id="combo" placeholder="Enter Table Name" required autocomplete="off">
+            <div class="custom-dropdown" id="customDropdown"></div>
+
+            <label for="y_axis">Y Axis:</label>
+            <input type="text" name="y_axis" id="y_axis" placeholder="Enter Y Axis" required autocomplete="off" />
+
+            <div class="custom-dropdown" id="y_Axis_Dropdown">
+
+            </div>
+
+            <label for="x_axis">X Axis:</label>
+
+
+            <input type="text" name="x_axis" id="x_axis" placeholder="Enter X Axis" required autocomplete="off" />
+
+            <div class="custom-dropdown" id="x_Axis_Dropdown">
+
+            </div>
+
+                     
+
+
+            <button type="submit" class="table-sumbit-button">Submit</button>
+
+        </div>
+
+
+    </form>
+
+
+
+
+
+    <canvas id="table_results_canvas"></canvas>
+    {% if is_post %}
+
+    <div class="chart-column">
+        <button class="chart-icon-btn" onclick="updateChartType('line')">
+            <img src="{% static 'SVG/Line.svg' %}" alt="Line SVG">
+        </button>
+        <button class="chart-icon-btn" onclick="updateChartType('bar')">
+            <img src="{% static 'SVG/Bar.svg' %}" alt="Bar SVG">
+        </button>
+        <button class="chart-icon-btn" onclick="updateChartType('scatter')">
+            <img src="{% static 'SVG/Scatter.svg' %}" alt="Scatter SVG">
+        </button>
+    </div>
+
+
+    {% endif %}
+</div>
+
+
+
+<!--
+canvas graph
+-->
+
+<script>
+
+        var table_results_json = JSON.parse('{{ table_results_json|escapejs }}');
+
+
+        const y_axis = table_results_json.map(item => item.fields.YAxis);
+        const x_axis = table_results_json.map(item => item.fields.XAxis);
+
+
+        // Create the chart
+        const ctx = document.getElementById('table_results_canvas').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: x_axis,
+                datasets: [{
+                    label: 'Tackle view',
+                    data: y_axis,
+                    borderColor: 'rgb(75, 192, 192)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true
+                }]
+            }
+        });
+</script>
+
+<script>
+    var IsTableSelected = false;
+    var ugTableNames = {{ ug_table_names_ids_json| safe }};
+
+
+    const input = document.getElementById("combo");
+    const dropdown = document.getElementById("customDropdown");
+
+    const itemsList = ugTableNames;
+
+
+    itemsList.forEach(item => {
+        const div = document.createElement("div");
+        div.textContent = item.table_name;
+        div.setAttribute("data-id", item.ug_table_id);
+        div.onclick = function () {
+            input.value = item.table_name;
+            dropdown.style.display = "none";
+            updateColumnsDropdown(item.ug_table_id);
+        };
+        dropdown.appendChild(div);
+    });
+
+
+
+
+
+    input.onfocus = function () {
+        dropdown.style.display = "block";
+        filterDropdown();
+    };
+
+    input.onblur = function () {
+        setTimeout(() => {
+            dropdown.style.display = "none";
+        }, 150);
+    };
+
+    input.oninput = filterDropdown;
+
+    function filterDropdown() {
+        const value = input.value.toLowerCase();
+        const items = dropdown.children;
+        for (let item of items) {
+            if (item.textContent.toLowerCase().includes(value)) {
+                item.style.display = "";
+            } else {
+                item.style.display = "none";
+            }
+        }
+    }
+
+
+</script>
+
+
+
+<script>
+    let comboText = document.getElementById("combo");
+
+    let y_Axis_DropdownInput = document.getElementById("y_Axis_Dropdown");
+    let y_AxisTextInput = document.getElementById("y_axis");
+
+    let x_Axis_DropdownInput = document.getElementById("x_Axis_Dropdown");
+    let x_AxisTextInput = document.getElementById("x_axis");
+
+
+
+
+    function updateColumnsDropdown(selectedTableId) {
+        IsTableSelected = true;
+        let columnsData = {{ columns_results_json|safe}};
+
+      let columnsForSelectedTable = columnsData.filter(column => column.fields.ug_table_id == selectedTableId.toString());
+
+    y_Axis_DropdownInput.innerHTML = "";
+    x_Axis_DropdownInput.innerHTML = "";
+
+    columnsForSelectedTable.forEach(column => {
+        const div = document.createElement("div");
+        div.textContent = column.fields.column_name;
+        div.onclick = function () {
+            y_AxisTextInput.value = column.fields.column_name;
+            y_Axis_DropdownInput.style.display = "none";
+        };
+        y_Axis_DropdownInput.appendChild(div);
+    });
+
+
+            columnsForSelectedTable.forEach(column => {
+                const divx = document.createElement("div");
+                divx.textContent = column.fields.column_name;
+                divx.onclick = function () {
+                    x_AxisTextInput.value = column.fields.column_name;
+                    x_Axis_DropdownInput.style.display = "none";
+                };
+                x_Axis_DropdownInput.appendChild(divx);
+            });
+}
+
+
+
+
+    y_AxisTextInput.addEventListener("focus", function () {
+        y_Axis_DropdownInput.style.display = "block";
+        if (IsTableSelected)
+            updateColumnsDropdown(selectedTableId); // Show the dropdown on focus
+    });
+
+    y_AxisTextInput.addEventListener("input", function () {
+        y_Axis_DropdownInput.style.display = "block";
+        if (this.value === "") {
+            if (IsTableSelected)
+                updateColumnsDropdown(selectedTableId); // Show the dropdown when input is empty
+        }
+    });
+
+    y_AxisTextInput.addEventListener('focus', function () {
+        this.select();  // Selects the entire text content of the input
+    });
+
+    comboText.addEventListener('focus', function () {
+        this.select();  // Selects the entire text content of the input
+    });
+
+
+    // x axis Input ----------------------------------------->
+
+
+    x_AxisTextInput.addEventListener("focus", function () {
+        x_Axis_DropdownInput.style.display = "block";
+        if (IsTableSelected)
+            updateColumnsDropdown(selectedTableId); // Show the dropdown on focus
+    });
+
+    x_AxisTextInput.addEventListener("input", function () {
+        x_Axis_DropdownInput.style.display = "block";
+        if (this.value === "") {
+            if (IsTableSelected)
+                updateColumnsDropdown(selectedTableId); // Show the dropdown when input is empty
+        }
+    });
+
+    x_AxisTextInput.addEventListener('focus', function () {
+        this.select();  // Selects the entire text content of the input
+    });
+
+
+
+    document.addEventListener("mousedown", function (event) {
+        // Check if the clicked element is NOT the input box or any of its child elements
+        if (y_AxisTextInput !== event.target && !y_AxisTextInput.contains(event.target)
+            && y_Axis_DropdownInput !== event.target && !y_Axis_DropdownInput.contains(event.target)) {
+            y_Axis_DropdownInput.style.display = "none";
+        }
+
+        if (x_AxisTextInput !== event.target && !x_AxisTextInput.contains(event.target)
+            && x_Axis_DropdownInput !== event.target && !x_Axis_DropdownInput.contains(event.target)) {
+            x_Axis_DropdownInput.style.display = "none";
+        }
+
+
+    });
+
+</script>
+
+<script>
+
+    function updateChartType(chartType) {
+        chart.config.type = chartType;
+        chart.update();
+    }
+</script>
+
+
+    {% endblock %}
+
+

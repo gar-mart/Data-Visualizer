@@ -1,0 +1,11 @@
+    <svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background Rectangle -->
+        <rect width="60" height="60" fill="#f5f5f5" />
+
+        <!-- Points for the scatter plot -->
+        <circle cx="6" cy="48" r="2.4" fill="#37c4c4" />
+        <circle cx="18" cy="12" r="3.6" fill="#37c4c4" />
+        <circle cx="30" cy="30" r="6" fill="#37c4c4" />
+        <circle cx="42" cy="42" r="3.6" fill="#37c4c4" />
+        <circle cx="54" cy="18" r="4.2" fill="#37c4c4" />
+    </svg>

@@ -1,0 +1,9 @@
+<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background Rectangle -->
+        <rect width="60" height="60" fill="#f5f5f5" />
+
+        <!-- Bars -->
+        <rect x="6" y="36" width="9.6" height="24" fill="#37c4c4" />
+        <rect x="24" y="24" width="9.6" height="36" fill="#37c4c4" />
+        <rect x="43.2" y="12" width="9.6" height="48" fill="#37c4c4" />
+    </svg>

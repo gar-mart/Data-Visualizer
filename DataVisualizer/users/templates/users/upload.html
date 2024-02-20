@@ -1,0 +1,35 @@
+{% extends "app/layout.html" %}
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+
+
+
+
+<div class="form-container">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.upload.label_tag }} {{ form.upload }}
+        <br>
+
+        {{ form.table_name.label_tag }}
+        <input type="text" name="{{ form.table_name.name }}" autocomplete="off">
+       
+        <br>
+
+        {{ form.category_name.label_tag }}
+        <input type="text" name="{{ form.category_name.name }}" autocomplete="off">
+        
+
+        <button type="submit">Upload</button>
+    </form>
+</div>
+
+
+{% endblock %}
+
+
+
+

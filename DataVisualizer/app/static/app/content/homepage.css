@@ -1,0 +1,51 @@
+.hero-section {
+    background: linear-gradient(rgba(65, 118, 144, 0.7), rgba(65, 118, 144, 0.7)), url('path_to_background_image.jpg');
+    background-attachment: fixed; /* Parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    padding: 150px 0;
+}
+
+.features-section, .how-it-works-section {
+    padding: 80px 0;
+    background-color: #f4f4f4;
+}
+
+.feature-icon, .step-icon {
+    font-size: 60px;
+    color: #417690;
+    margin-bottom: 20px;
+}
+
+.btn-primary.btn-lg {
+    padding: 15px 40px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.samples-section {
+    padding: 80px 0;
+}
+
+.testimonials-section {
+    background-color: #e9ecef;
+    padding: 80px 0;
+}
+
+blockquote {
+    font-style: italic;
+    position: relative;
+    padding-left: 80px;
+}
+
+.testimonial-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+

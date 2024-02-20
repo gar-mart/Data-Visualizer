@@ -1,0 +1,43 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'Visualize/css/style_table.css' %}"> 
+
+<table>
+    <thead>
+        <tr>
+            {% for column in columns %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr>
+            {% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p>pagination</p>
+
+
+<div class="pagination">
+    {% for i in page_range %}
+    <a href="{% url 'view_table' ug_table_id=ug_table_id page=i %}" class="{% if i == current_page %}active{% endif %}">{{ i }}</a>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
+
+
+

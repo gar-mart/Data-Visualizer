@@ -1,0 +1,39 @@
+/* General styling to match the template's aesthetics */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 25px auto;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+}
+
+/* Table headers */
+th {
+    background: linear-gradient(to right, #417690, #5a94a5); /* Adjusted to match navbar color */
+    color: white;
+    padding: 15px 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Table data */
+td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Striped rows for better readability */
+tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+
+/* Hover effect for interactivity */
+tr:not(:first-child):hover {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
