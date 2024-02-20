@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{16841c0f-6be9-4968-8b24-f7c62cd69493}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DB</RootNamespace>
+    <AssemblyName>DB</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="ugTables\" />
+    <Folder Include="ugTables\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="ugTables\Functions\" />
+    <Folder Include="ug\" />
+    <Folder Include="ug\Stored Procedures\" />
+    <Folder Include="Users\" />
+    <Folder Include="Users\Stored Procedures\" />
+    <Folder Include="ugTables\Stored Procedures\" />
+    <Folder Include="Visualize\" />
+    <Folder Include="Visualize\Stored Procedures\" />
+    <Folder Include="dbo\User Defined Types\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="ugTables\Tables\ugt_2_46.sql" />
+    <Build Include="ugTables\Tables\ugt_1013_47.sql" />
+    <Build Include="ugTables\Tables\ugt_1013_48.sql" />
+    <Build Include="dbo\Tables\django_migrations.sql" />
+    <Build Include="dbo\Tables\django_content_type.sql" />
+    <Build Include="dbo\Tables\auth_permission.sql" />
+    <Build Include="dbo\Tables\auth_group.sql" />
+    <Build Include="dbo\Tables\auth_group_permissions.sql" />
+    <Build Include="dbo\Tables\auth_user.sql" />
+    <Build Include="ugTables\Tables\ugt_1013_49.sql" />
+    <Build Include="ugTables\Tables\ugt_1013_50.sql" />
+    <Build Include="ugTables\Tables\ugt_1013_51.sql" />
+    <Build Include="dbo\Tables\auth_user_groups.sql" />
+    <Build Include="ugTables\Tables\ugt_1013_52.sql" />
+    <Build Include="ugTables\Tables\ugt_1013_53.sql" />
+    <Build Include="dbo\Tables\auth_user_user_permissions.sql" />
+    <Build Include="dbo\Tables\django_admin_log.sql" />
+    <Build Include="dbo\Tables\ugt_14433_18.sql" />
+    <Build Include="ugTables\Tables\ugt_1013_54.sql" />
+    <Build Include="dbo\Tables\ugt_14444433_18.sql" />
+    <Build Include="ugTables\Tables\ugt_133_21.sql" />
+    <Build Include="ugTables\Tables\ugt_133_22.sql" />
+    <Build Include="dbo\Tables\app_car.sql" />
+    <Build Include="ugTables\Tables\ugt_133_23.sql" />
+    <Build Include="ugTables\Tables\ugt_133_24.sql" />
+    <Build Include="dbo\Tables\app_patient.sql" />
+    <Build Include="dbo\Tables\namesss.sql" />
+    <Build Include="dbo\Tables\django_session.sql" />
+    <Build Include="dbo\Tables\users_profile.sql" />
+    <Build Include="ugTables\Tables\UGT_TEST.sql" />
+    <Build Include="dbo\Tables\users_document.sql" />
+    <Build Include="dbo\Tables\users_review.sql" />
+    <Build Include="ugTables\Tables\ugt_4_40.sql" />
+    <Build Include="ugTables\Tables\ugt_4_41.sql" />
+    <Build Include="ugTables\Tables\ugt_1_42.sql" />
+    <Build Include="ugTables\Tables\ugt_2_43.sql" />
+    <Build Include="ugTables\Tables\ugt_1_44.sql" />
+    <Build Include="ugTables\Tables\ugt_3_45.sql" />
+    <Build Include="dbo\Tables\ugTables.sql" />
+    <Build Include="dbo\Tables\ugTableColumns.sql" />
+    <Build Include="dbo\Functions\get_ugTable_by_category_name_id.sql" />
+    <Build Include="dbo\Functions\get_ugTable_by_ugTableId.sql" />
+    <Build Include="dbo\Functions\get_ugTable_by_category_and_name_id.sql" />
+    <Build Include="ugTables\Functions\GetUGTableById.sql" />
+    <Build Include="ug\Stored Procedures\View_ugTable_by_ugTableId.sql" />
+    <Build Include="Users\Stored Procedures\InsertFromCSV.sql" />
+    <Build Include="ugTables\Stored Procedures\GenerateUGTableAttributes.sql" />
+    <Build Include="ugTables\Stored Procedures\CreateUGTable.sql" />
+    <Build Include="ugTables\Stored Procedures\ViewUGTableByUGTableId.sql" />
+    <Build Include="Visualize\Stored Procedures\VisualizeChart.sql" />
+    <Build Include="ugTables\Stored Procedures\GetUGTableNamesByUserId.sql" />
+    <Build Include="ugTables\Stored Procedures\GetUGTableColumnsByUserId.sql" />
+    <Build Include="Users\Stored Procedures\GetMyAssets.sql" />
+    <Build Include="ugTables\Stored Procedures\GetUGTablesTotalCountById.sql" />
+    <Build Include="ugTables\Stored Procedures\ugTableExists.sql" />
+    <Build Include="dbo\User Defined Types\tvpColumns.sql" />
+    <Build Include="dbo\User Defined Types\tvp_ConditionColumns.sql" />
+    <Build Include="Security\ug.sql" />
+    <Build Include="Security\ugTables.sql" />
+    <Build Include="Security\Users.sql" />
+    <Build Include="Security\Visualize.sql" />
+  </ItemGroup>
+</Project>
