@@ -1,0 +1,28 @@
+﻿CREATE TABLE [ugTables].[ugt_2_46] (
+    [Unnamed: 0]  NVARCHAR (255) NULL,
+    [Adj Close]   NVARCHAR (255) NULL,
+    [Adj Close.1] NVARCHAR (255) NULL,
+    [Adj Close.2] NVARCHAR (255) NULL,
+    [Adj Close.3] NVARCHAR (255) NULL,
+    [Close]       NVARCHAR (255) NULL,
+    [Close.1]     NVARCHAR (255) NULL,
+    [Close.2]     NVARCHAR (255) NULL,
+    [Close.3]     NVARCHAR (255) NULL,
+    [High]        NVARCHAR (255) NULL,
+    [High.1]      NVARCHAR (255) NULL,
+    [High.2]      NVARCHAR (255) NULL,
+    [High.3]      NVARCHAR (255) NULL,
+    [Low]         NVARCHAR (255) NULL,
+    [Low.1]       NVARCHAR (255) NULL,
+    [Low.2]       NVARCHAR (255) NULL,
+    [Low.3]       NVARCHAR (255) NULL,
+    [Open]        NVARCHAR (255) NULL,
+    [Open.1]      NVARCHAR (255) NULL,
+    [Open.2]      NVARCHAR (255) NULL,
+    [Open.3]      NVARCHAR (255) NULL,
+    [Volume]      NVARCHAR (255) NULL,
+    [Volume.1]    NVARCHAR (255) NULL,
+    [Volume.2]    NVARCHAR (255) NULL,
+    [Volume.3]    NVARCHAR (255) NULL
+);
+
